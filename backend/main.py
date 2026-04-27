@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import iss
+from routers import iss, launches
 
 app = FastAPI()
 
@@ -12,6 +12,7 @@ app.add_middleware(
 )
 
 app.include_router(iss.router, prefix="/api")
+app.include_router(launches.router, prefix="/api")
 
 
 @app.get("/")
